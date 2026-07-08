@@ -7,7 +7,7 @@ def gradient_descent_quadratic(a, b, c, x0, lr, steps):
     # Write code here
     
     for _ in range(steps):
-        gradient = 2 * a * x0 + b
+        gradient = 2 * a * x0 + b # f`(x) = 2ax + b 
         x0 = x0 - lr * gradient
     return x0
     
