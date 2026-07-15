@@ -4,7 +4,7 @@ def entropy_node(y):
     """
     Compute entropy for a single node using stable logarithms.
     """
-    # 0. handle empty y
+    # handle empty array
     if len(y) == 0:
         return 0.0
         
