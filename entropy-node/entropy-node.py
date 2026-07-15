@@ -18,7 +18,5 @@ def entropy_node(y):
     p_i = freq/np.sum(freq)
 
     # 3. calculate entropy
-    return - np.sum(p_i * np.log2(p_i)) 
-        
-    
-    
+    log_p = np.where(p_i > 0, np.log2(p_i), 0.0)
+    return - np.sum(p_i * log_p) 
