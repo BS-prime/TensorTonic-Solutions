@@ -14,16 +14,19 @@ def cosine_similarity(a, b):
         raise ValueError("Both arrays have to be the same length")
     if a.size == 0 and b.size == 0:
         raise ValueError("arrays can't be empty")
-    if a.any() == 0 or b.any() == 0:
-        return 0.0
 
     # 2. Perform dot product
     dp = np.dot(a, b)
 
     # 3. Perform Euclidean norm
-    norm = np.linalg.norm(a) * np.linalg.norm(b)
+    norm_a = np.linalg.norm(a)
+    norm_b = np.linalg.norm(b)
 
-    # 4. Calculate cosine similarity
-    return float(dp / norm)
+    # 4. Handle zero vectors
+    if norm_a == 0 or norm_b == 0:
+        return 0.0  
+
+    # 5. Calculate cosine similarity
+    return float(dp / (norm_a * norm_b))
     
     
