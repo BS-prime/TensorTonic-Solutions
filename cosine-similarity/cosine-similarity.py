@@ -14,7 +14,7 @@ def cosine_similarity(a, b):
         raise ValueError("Both arrays have to be the same length")
     if a.size == 0 and b.size == 0:
         raise ValueError("arrays can't be empty")
-    if a.any() == 0 and b.any():
+    if a.any() == 0 or b.any() == 0:
         return 0.0
 
     # 2. Perform dot product
