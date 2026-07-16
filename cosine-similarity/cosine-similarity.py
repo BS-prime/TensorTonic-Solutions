@@ -5,7 +5,7 @@ def cosine_similarity(a, b):
     Compute cosine similarity between two 1D NumPy arrays.
     Returns: float in [-1, 1]
     """
-    # 0. Convert to NumPy array
+    # 0. Convert to NumPy arrays
     a = np.asarray(a)
     b = np.asarray(b)
 
