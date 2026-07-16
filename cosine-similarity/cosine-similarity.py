@@ -12,7 +12,7 @@ def cosine_similarity(a, b):
     # 1. Perform checks
     if a.shape != b.shape:
         raise ValueError("Both arrays have to be the same length")
-    if a.size == 0 and b.size == 0:
+    if a.size == 0 or b.size == 0:
         raise ValueError("arrays can't be empty")
 
     # 2. Perform dot product
@@ -22,7 +22,7 @@ def cosine_similarity(a, b):
     norm_a = np.linalg.norm(a)
     norm_b = np.linalg.norm(b)
 
-    # 4. Handle zero vectors
+    # 4. Check if Euclidean norm is zero
     if norm_a == 0 or norm_b == 0:
         return 0.0  
 
