@@ -13,7 +13,7 @@ def zscore_standardize(X, axis=0, eps=1e-12):
         raise ValueError("X can't be empty")
 
     # 2. calculate z-score
-    numerator = x - np.mean(x, axis=axis, keepdims=True)
+    numerator = x - np.mean(x, axis = axis, keepdims=True)
     denominator = np.std(x, axis = axis, keepdims=True)
 
     return numerator/(denominator + eps)
