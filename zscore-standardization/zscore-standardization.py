@@ -6,15 +6,15 @@ def zscore_standardize(X, axis=0, eps=1e-12):
     Return np.ndarray (float).
     """
     # 0. convert to numpy array
-    x = np.asarray(X)
+    x = np.asarray(X, dtype=np.float64)
 
     # 1. perform checks
     if x.size == 0:
         raise ValueError("X can't be empty")
 
     # 2. calculate z-score
-    numerator = x - np.mean(x, axis = axis, keepdims = True)
-    denominator = np.std(x, axis = axis, keepdims = True)
+    mean = np.mean(x, axis = axis, keepdims = True)
+    std = np.std(x, axis = axis, keepdims = True)
 
-    return numerator/(denominator + eps)
+    return (x - mean)/(std + eps)
     
