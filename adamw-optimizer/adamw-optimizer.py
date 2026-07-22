@@ -25,12 +25,8 @@ def adamw_step(w, m, v, grad, lr=0.001, beta1=0.9, beta2=0.999, weight_decay=0.0
 
     # 3. velocity update
     v_t = beta2*v + (1 - beta2)*(grad**2)
-
-    # # 4. implementing bias correction
-    # m_bc = m_t / (1 - beta1**t)
-    # v_bc = v_t / (1 - beta2**t)
     
-    # 5. final AdamW implementation
+    # 4. final AdamW implementation
     w_t = (
         w 
         - lr * weight_decay * w 
