@@ -15,9 +15,5 @@ def mean_squared_error(y_pred, y_true):
     if y_pred.ndim > 1 or y_true.ndim > 1:
         raise ValueError("dimension could not be more than 1")
 
-    # 1. handle edge cases
-    if np.array_equal(y_pred, y_true):
-        return 0.0
-
-    # 2. calculate sum of squared error
+    # 1. calculate sum of squared error
     return np.mean((y_true - y_pred)**2)
