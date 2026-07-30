@@ -12,8 +12,8 @@ def hinge_loss(y_true, y_score, margin=1.0, reduction="mean") -> float:
     y_score = np.asarray(y_score, dtype=np.float64)
     y_true = np.asarray(y_true, dtype=np.float64)
 
-    # 1. calculate hinge loss
-    loss = np.maximum(0, margin - y_true*y_score)
+    # 1. calculate hinge loss(element wise)
+    loss = np.maximum(0, margin - y_true * y_score)
 
     # 2. return the mean loss
     if reduction == "mean":
