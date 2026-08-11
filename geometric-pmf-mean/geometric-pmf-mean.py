@@ -8,7 +8,7 @@ def geometric_pmf_mean(k, p):
     k = np.asarray(k)
     
     # 0. validate param
-    if (k < 1).any():
+    if (k < 1).any() or (k != k.astype(int)).any():
         raise ValueError("Trails could not less zero")
 
     if not 0 < p <= 1:
