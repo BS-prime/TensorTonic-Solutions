@@ -9,14 +9,17 @@ def sample_var_std(x):
     x = np.asarray(x)
 
     # 1. validate params
-    if x.size == 0:
-        raise ValueError("x can't be empty")
+    if x.ndim != 1:
+        raise ValueError("x must be 1-dimensional")
+
+    if x.size < 2:
+        raise ValueError("x should have at least 2 elements")
 
     # 2. calculate the mean
     mean = np.mean(x)
 
-    # 3. substract each data point from from the mean
-    var = np.sum((x - mean)**2) / (len(x) - 1)
+    # 3. calculate sample variance using Bessel's correction
+    var = np.sum((x - mean) ** 2) / (x.size - 1)
 
     # 4. calculate standard deviation
     std = np.sqrt(var)
