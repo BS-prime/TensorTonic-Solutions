@@ -16,6 +16,9 @@ def percentiles(x, q):
     if x.size == 0 or q.size == 0:
         raise ValueError("params could not be emptpy")
 
+    if x.ndim != 1 or q.ndim != 1:
+        raise ValueError("params should be 1-dimensional")
+
     # 2. calculate percentiles
     pctile = np.percentile(x, q, method = "linear")
 
