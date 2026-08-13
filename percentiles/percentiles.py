@@ -10,14 +10,14 @@ def percentiles(x, q):
     q = np.asarray(q)
 
     # 1. params validation
+    if x.ndim != 1 or q.ndim != 1:
+        raise ValueError("params should be 1-dimensional")
+        
     if not np.all((q >= 0) & (q <= 100)):
         raise ValueError("q should be between 0 and 100")
 
     if x.size == 0 or q.size == 0:
         raise ValueError("params could not be emptpy")
-
-    if x.ndim != 1 or q.ndim != 1:
-        raise ValueError("params should be 1-dimensional")
 
     # 2. calculate percentiles
     pctile = np.percentile(x, q, method = "linear")
