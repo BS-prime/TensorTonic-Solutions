@@ -27,7 +27,7 @@ def gini_impurity(y_left, y_right):
             return 0.0
 
         _, counts = np.unique(y, return_counts=True)
-        probs = counts / len(y)
+        probs = counts / np.sum(counts)
 
         return 1.0 - np.sum(probs ** 2)
 
